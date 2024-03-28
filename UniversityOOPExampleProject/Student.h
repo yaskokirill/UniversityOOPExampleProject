@@ -42,6 +42,10 @@ public:
 		mark = m;
 	}
 
+	~Student() {
+		cout << "calling destructor" << endl;
+	}
+
 	string convert() {
 		string s = "";
 		s += name;
