@@ -5,52 +5,28 @@
 using namespace std;
 
 class Student {
-public:
+private:
 	string name;
 	int age;
 	double mark;
 
-	// default constructor
-	Student() {
-		//cout << "calling default constructor" << endl;
-		name = "no name";
-		age = 5;
-		mark = 4;
-	}
+public:
+	Student();
+	Student(string nm, int a, double m);
+	Student(string nm);
+	Student(double m);
 
-	// canonical constructor with parameters (arguments)
-	Student(string nm, int a, double m) {
-		//cout << "calling canonical constructor" << endl;
-		name = nm;
-		age = a;
-		mark = m;
-	}
+	~Student();
 
-	// constructor with parameters (arguments)
-	Student(string nm) {
-		//cout << "calling canonical constructor" << endl;
-		name = nm;
-		age = 0;
-		mark = 0;
-	}
+	string getName();
+	void setName(string nm);
 
-	// constructor with parameters (arguments)
-	Student(double m) {
-		//cout << "calling canonical constructor" << endl;
-		name = "no name";
-		age = 0;
-		mark = m;
-	}
+	int getAge();
+	void setAge(int a);
 
-	~Student() {
-		cout << "calling destructor" << endl;
-	}
+	double getMark();
+	void setMark(double m);
 
-	string convert() {
-		string s = "";
-		s += name;
-		s += ": age = " + to_string(age);
-		s += ", mark = " + to_string(mark);
-		return s;
-	}
+	string convert();
+
 };
