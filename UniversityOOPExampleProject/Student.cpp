@@ -1,38 +1,10 @@
 #include "Student.h"
 
-Student::Student() {
-	name = "no name";
-	age = 5;
-	mark = 4;
-}
+//// copy-constructor
+//Student(const Student& student) {
 
+//}
 
-Student::Student(string name, int age, double mark) {
-	this->name = name;
-	this->age = age;
-	this->mark = mark;
-}
-
-// constructor with parameters (arguments)
-Student::Student(string name) {
-	//cout << "calling constructor with parameters 1" << endl;
-	this->name = name;
-	age = 0;
-	mark = 0;
-}
-
-// constructor with parameters (arguments)
-Student::Student(double mark) {
-	//cout << "calling constructor with parameters 2" << endl;
-	name = "no name";
-	age = 0;
-	this->mark = mark;
-}
-
-Student::~Student() {
-	//cout << "calling destructor" << endl;
-	//delete[] mark;
-}
 
 string Student::getName() {
 	return name;

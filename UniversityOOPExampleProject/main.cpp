@@ -1,14 +1,18 @@
 #include "Manager.h"
 #include <iostream>
-using namespace std;
 
 int main() {
-	Student st1("Alex", 14, 9);
-	Student st2("Alice", 15, 7);
+	Group groupA;
 
-	cout << st1.convert() << endl;
+	Student st1{ "Alex", 16, 9};
+	Student st2{ "Peter", 15, 8 };
+	Student st3{ "Alice", 14, 7 };
 
-	Student* st2 = new Student("Peter", 16, 10);
+	groupA.add(st1);
+	groupA.add(st2);
+	groupA.add(st3);
+
+	cout << groupA.getInfo() << endl;
 
 	return 0;
 }
