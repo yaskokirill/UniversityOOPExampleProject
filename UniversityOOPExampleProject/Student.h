@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 class Student {
@@ -10,26 +9,31 @@ private:
 	int age;
 	double mark;
 
+	static int count;
+
 public:
-	Student() : Student("no name", 5, 4) {}
 
-	Student(string name, int age, double mark)
-		: name(name), age(age), mark(mark) {}
+	static const int MAX_MARK = 10;
+	static const int MIN_MARK = 0;
 
-	Student(string name) : Student(name, 0, 0) {}
-	Student(double mark) : Student("no name", 0, mark) {}
+	static const int MAX_AGE = 100;
+	static const int MIN_AGE = 0;
 
-	~Student() {}
+	Student();
+	Student(string, int, double);
+	Student(string);
+
+	~Student();
 
 	string getName();
-	void setName(string nm);
 
 	int getAge();
-	void setAge(int a);
+	void setAge(int);
 
 	double getMark();
-	void setMark(double m);
+	void setMark(double);
+
+	static int getCount();
 
 	string convert();
-
 };

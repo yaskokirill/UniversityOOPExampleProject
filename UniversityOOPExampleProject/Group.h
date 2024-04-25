@@ -4,14 +4,22 @@
 class Group
 {
 private:
-	Student list[30];
-	int size = 0;
+	Student* list;
+	int size;
 
 public:
+	Group() : size(0) {}
+
+	void add(Student st);
+	void remove(int index);
+	void remove(Student student);
+
+	bool contain(Student student);
+	int getFirstIndex(Student student);
+	int getLastIndex(Student student);
+
 	int getSize();
-	bool add(Student student);
-	//bool remove(Student student);
 	Student get(int index);
-	string getInfo();
-	//...
+
+	string convertToString();
 };

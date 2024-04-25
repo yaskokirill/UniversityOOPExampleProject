@@ -3,8 +3,9 @@
 
 class Manager {
 public:
-	double getMaxMark(Group group);
-	double getMinMark(Group group);
-	double calcAvgMark(Group group);
-	Student getBestStudent(Group group);
+	static double getMaxMark(Group group);
+	static double getMinMark(Group group);
+	static double calcAvgMark(Group group);
+	static Student getBestStudent(Group group);
+	static Student getWorstStudent(Group group);
 };
