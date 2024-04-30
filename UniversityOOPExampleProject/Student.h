@@ -1,9 +1,9 @@
 #pragma once
-#include <iostream>
-#include <string>
+#include "Human.h"
 using namespace std;
 
-class Student {
+class Student : public Human
+{ 
 private:
 	string name;
 	int age;
@@ -16,24 +16,16 @@ public:
 	static const int MAX_MARK = 10;
 	static const int MIN_MARK = 0;
 
-	static const int MAX_AGE = 100;
-	static const int MIN_AGE = 0;
-
 	Student();
 	Student(string, int, double);
 	Student(string);
 
 	~Student();
 
-	string getName();
-
-	int getAge();
-	void setAge(int);
-
 	double getMark();
 	void setMark(double);
 
 	static int getCount();
 
-	string convert();
+	string getInfo();
 };
