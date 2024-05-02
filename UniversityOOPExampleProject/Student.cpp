@@ -1,44 +1,24 @@
-#include "Student.h"
+#pragma once
+#include "Human.h"
 
-int Student::count = 0;
+class Student : public Human {
+private:
+	double mark;
 
-int Student::getCount() {
-	return count;
-}
+public:
+	Student() {} // : Student("no name", 5, 4) {}
 
+	/*Student(string name, int age, double mark)
+		: name(name), age(age), mark(mark) {}*/
 
-Student::Student() : Student("no_name", 6, 4) {
+		/*Student(string name) : Student(name, 0, 0) {}
+		Student(double mark) : Student("no name", 0, mark) {}*/
 
-}
+	~Student() {}
 
-Student::Student(string name) : name(name), age(6), mark(4) {
-	count++;
-}
+	double getMark();
+	void setMark(double m);
 
-Student::Student(string name, int age, double mark)
-	: name(name), age(age), mark(mark) {
-	count++;
-}
+	string getInfo();
 
-Student::~Student() {
-	count--;
-}
-
-double Student::getMark() {
-	return mark;
-}
-
-void Student::setMark(double mark) {
-	if (mark >= MIN_MARK && mark <= MAX_MARK) {
-		this->mark = mark;
-	}
-}
-
-string Student::getInfo() {
-	string s = "";
-	s += getName();
-	s += ": age = " + to_string(getAge());
-	s += ", mark = " + to_string(mark);
-
-	return s;
-}
+};

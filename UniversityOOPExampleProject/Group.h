@@ -5,21 +5,17 @@ class Group
 {
 private:
 	Student* list;
-	int size;
+	int size = 0;
 
 public:
-	Group() : size(0) {}
-
-	void add(Student st);
+	int getSize();
+	void add(Student student);
 	void remove(int index);
 	void remove(Student student);
 
-	bool contain(Student student);
-	int getFirstIndex(Student student);
-	int getLastIndex(Student student);
+	int findFirstIndex(Student student);
 
-	int getSize();
 	Student get(int index);
-
-	string convertToString();
+	string getInfo();
+	//...
 };

@@ -10,15 +10,16 @@ private:
 	int age;
 
 public:
+	Human() {
+		cout << "default constructor of Human" << endl;
+	}
 
-	static const int MAX_AGE = 100;
-	static const int MIN_AGE = 0;
-
-	Human() {}
 	Human(string name, int age) :
 		name(name), age(age) {}
 
-	~Human() {}
+	~Human() {
+		cout << "destructor of Human" << endl;
+	}
 
 	string getName();
 	void setName(string name);
@@ -27,4 +28,3 @@ public:
 
 	string getInfo();
 };
-

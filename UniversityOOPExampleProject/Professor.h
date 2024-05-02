@@ -4,8 +4,11 @@
 class Professor : public Worker
 {
 public:
-	Professor() {}
+	Professor() {
+		cout << "default constructor of Professor" << endl;
+	}
 
-	~Professor() {}
+	~Professor() {
+		cout << "destructor of Professor" << endl;
+	}
 };
-

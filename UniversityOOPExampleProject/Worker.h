@@ -1,6 +1,5 @@
 #pragma once
 #include "Human.h"
-using namespace std;
 
 class Worker : public Human
 {
@@ -8,15 +7,19 @@ private:
 	double salary;
 
 public:
-	Worker() {}
-	//Worker(string name, int age, double salary) :
-	//	name(name), age(age), salary(salary) {}
+	Worker() {
+		cout << "default constructor of Worker" << endl;
+	}
 
-	~Worker() {}
+	/*Worker(string name, int age, double salary) :
+		name(name), age(age), salary(salary) {}*/
+
+	~Worker() {
+		cout << "destructor of Worker" << endl;
+	}
 
 	double getSalary();
 	void setSalary(double salary);
 
 	string getInfo();
 };
-
