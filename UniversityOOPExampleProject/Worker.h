@@ -11,8 +11,7 @@ public:
 		cout << "default constructor of Worker" << endl;
 	}
 
-	/*Worker(string name, int age, double salary) :
-		name(name), age(age), salary(salary) {}*/
+	Worker(string name, int age, double salary) : Human(name, age), salary(salary) {}
 
 	~Worker() {
 		cout << "destructor of Worker" << endl;

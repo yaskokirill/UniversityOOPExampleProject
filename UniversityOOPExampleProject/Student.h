@@ -1,31 +1,24 @@
 #pragma once
 #include "Human.h"
-using namespace std;
 
-class Student : public Human
-{ 
+class Student : public Human {
 private:
-	string name;
-	int age;
 	double mark;
 
-	static int count;
-
 public:
+	Student() : Human("no name", 5), mark(4) {}
 
-	static const int MAX_MARK = 10;
-	static const int MIN_MARK = 0;
+	Student(string name, int age, double mark)
+		: Human(name, age), mark(mark) {}
 
-	Student();
-	Student(string, int, double);
-	Student(string);
+	Student(string name) : Human(" no name", 0), mark(0) {}
+	Student(double mark) : Student("no name", 0, mark) {}
 
-	~Student();
+	~Student() {}
 
 	double getMark();
-	void setMark(double);
-
-	static int getCount();
+	void setMark(double m);
 
 	string getInfo();
+
 };
