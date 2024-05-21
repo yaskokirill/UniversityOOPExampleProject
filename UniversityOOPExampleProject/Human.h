@@ -10,15 +10,17 @@ private:
 	int age;
 
 public:
+	int id;
+
 	Human() {
-		cout << "default constructor of Human" << endl;
+		//cout << "default constructor of Human" << endl;
 	}
 
 	Human(string name, int age) :
 		name(name), age(age) {}
 
 	~Human() {
-		cout << "destructor of Human" << endl;
+		//cout << "destructor of Human" << endl;
 	}
 
 	string getName();

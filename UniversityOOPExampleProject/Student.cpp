@@ -1,24 +1,19 @@
-#pragma once
-#include "Human.h"
+#include "Student.h"
 
-class Student : public Human {
-private:
-	double mark;
+double Student::getMark() {
+	return mark;
+}
 
-public:
-	Student() {} // : Student("no name", 5, 4) {}
+void Student::setMark(double mark) {
+	if (mark > 0 && mark <= 10) {
+		this->mark = mark;
+	}
+}
 
-	/*Student(string name, int age, double mark)
-		: name(name), age(age), mark(mark) {}*/
-
-		/*Student(string name) : Student(name, 0, 0) {}
-		Student(double mark) : Student("no name", 0, mark) {}*/
-
-	~Student() {}
-
-	double getMark();
-	void setMark(double m);
-
-	string getInfo();
-
-};
+string Student::getInfo() {
+	string s = "";
+	s += getName();
+	s += ": age = " + to_string(getAge());
+	s += ", mark = " + to_string(mark);
+	return s;
+}

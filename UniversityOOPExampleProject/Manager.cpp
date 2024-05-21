@@ -1,11 +1,12 @@
 #include "Manager.h"
 
 double Manager::getMaxMark(Group group) {
-	double max = group.get(0).getMark();
+	Student student = group.get(0);
+	double max = student.getMark();
 
 	for (int i = 1; i < group.getSize(); i++)
 	{
-		if (group.get(i).getMark() > max) {
+		if (max < group.get(i).getMark()) {
 			max = group.get(i).getMark();
 		}
 	}
@@ -18,7 +19,7 @@ double Manager::getMinMark(Group group) {
 
 	for (int i = 1; i < group.getSize(); i++)
 	{
-		if (group.get(i).getMark() < min) {
+		if (min < group.get(i).getMark()) {
 			min = group.get(i).getMark();
 		}
 	}
@@ -38,27 +39,12 @@ double Manager::calcAvgMark(Group group) {
 }
 
 Student Manager::getBestStudent(Group group) {
-	double mark = getMaxMark(group);
+	double bestMark = getMaxMark(group);
 	Student st;
 
 	for (int i = 0; i < group.getSize(); i++)
 	{
-		if (group.get(i).getMark() == mark) {
-			st = group.get(i);
-			break;
-		}
-	}
-
-	return st;
-}
-
-Student Manager::getWorstStudent(Group group) {
-	double mark = getMinMark(group);
-	Student st;
-
-	for (int i = 0; i < group.getSize(); i++)
-	{
-		if (group.get(i).getMark() == mark) {
+		if (group.get(i).getMark() == bestMark) {
 			st = group.get(i);
 			break;
 		}

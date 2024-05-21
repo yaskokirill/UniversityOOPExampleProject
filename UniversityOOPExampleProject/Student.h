@@ -11,7 +11,7 @@ public:
 	Student(string name, int age, double mark)
 		: Human(name, age), mark(mark) {}
 
-	Student(string name) : Human(" no name", 0), mark(0) {}
+	Student(string name) : Human("no name", 0), mark(0) {}
 	Student(double mark) : Student("no name", 0, mark) {}
 
 	~Student() {}
@@ -21,4 +21,11 @@ public:
 
 	string getInfo();
 
+	Student operator+(int number) {
+		if (mark + number <= 10 || mark + number >= 0) {
+			mark += number;
+		}
+
+		return *this;
+	}
 };

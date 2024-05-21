@@ -5,16 +5,17 @@ double Worker::getSalary() {
 }
 
 void Worker::setSalary(double salary) {
-	if (salary < 0) {
+	if (salary > 0) {
 		this->salary = salary;
 	}
 }
 
 string Worker::getInfo() {
 	string s = "";
-	s += getName() + "age = ";
+	s += getName() + ": age = ";
 	s += to_string(getAge()) + ", salary = ";
 	s += to_string(salary);
+	s += to_string(id);
 
 	return s;
 }

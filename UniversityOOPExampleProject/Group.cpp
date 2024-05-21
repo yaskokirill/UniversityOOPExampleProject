@@ -1,10 +1,13 @@
 #include "Group.h"
 
-void Group::add(Student st) {
+int Group::getSize() {
+	return size;
+}
+
+void Group::add(Student student) {
 	if (size == 0) {
 		list = new Student[1];
-		*list = st;
-		//list[0] = st;
+		list[0] = student;
 	}
 	else {
 		Student* temp = new Student[size + 1];
@@ -14,8 +17,7 @@ void Group::add(Student st) {
 			temp[i] = list[i];
 		}
 
-		temp[size] = st;
-
+		temp[size] = student;
 		delete[] list;
 		list = temp;
 	}
@@ -30,7 +32,8 @@ void Group::remove(int index) {
 		for (int i = 0, j = 0; i < size; i++)
 		{
 			if (i != index) {
-				temp[j++] = list[i];
+				temp[j] = temp[i];
+				j++;
 			}
 		}
 
@@ -41,25 +44,11 @@ void Group::remove(int index) {
 }
 
 void Group::remove(Student student) {
-	int index = getFirstIndex(student);
-
-	if (index != -1) {
-
-		Student* temp = new Student[size - 1];
-
-		for (int i = 0, j = 0; i < size; i++)
-		{
-			if (i != index) {
-				temp[j++] = list[i];
-			}
-		}
-		size--;
-		delete[] list;
-		list = temp;
-	}
+	int index = findFirstIndex(student);
+	remove(index);
 }
 
-int Group::getFirstIndex(Student student) {
+int Group::findFirstIndex(Student student) {
 	for (int i = 0; i < size; i++)
 	{
 		if (student.getName() == list[i].getName()
@@ -70,37 +59,6 @@ int Group::getFirstIndex(Student student) {
 	}
 
 	return -1;
-}
-
-int Group::getLastIndex(Student student) {
-	for (int i = size - 1; i >= 0; i--)
-	{
-		if (student.getName() == list[i].getName()
-			&& student.getAge() == list[i].getAge()
-			&& student.getMark() == list[i].getMark()) {
-			return i;
-		}
-	}
-
-	return -1;
-}
-
-bool Group::contain(Student student) {
-	for (int i = 0; i < size; i++)
-	{
-		if (student.getName() == list[i].getName()
-			&& student.getAge() == list[i].getAge()
-			&& student.getMark() == list[i].getMark()) {
-			return true;
-		}
-	}
-
-	return false;
-}
-
-
-int Group::getSize() {
-	return size;
 }
 
 Student Group::get(int index) {
@@ -108,15 +66,16 @@ Student Group::get(int index) {
 		return list[index];
 	}
 
-	return Student();
+	return Student();	//Student()
 }
 
-string Group::convertToString() {
-	string s = "Group of students:\n";
+string Group::getInfo() {
+	string s = "Lit of students:";
 
 	for (int i = 0; i < size; i++)
 	{
-		s += list[i].convert() + "\n";
+		s += "\n" + to_string(i + 1) + ") ";
+		s += list[i].getInfo();
 	}
 
 	return s;

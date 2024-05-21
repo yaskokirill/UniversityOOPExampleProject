@@ -8,13 +8,14 @@ private:
 
 public:
 	Worker() {
-		cout << "default constructor of Worker" << endl;
+		//cout << "default constructor of Worker" << endl;
 	}
 
-	Worker(string name, int age, double salary) : Human(name, age), salary(salary) {}
+	Worker(string name, int age, double salary)
+		: Human(name, age), salary(salary) {}
 
 	~Worker() {
-		cout << "destructor of Worker" << endl;
+		//cout << "destructor of Worker" << endl;
 	}
 
 	double getSalary();
